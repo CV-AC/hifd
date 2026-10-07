@@ -1,0 +1,7 @@
+# Maintainers who may approve `verified: true` flips.
+# Update the handle below if maintainership changes.
+
+*                                 @weihui1308
+docs/page/submissions/_baselines/ @weihui1308
+docs/page/submissions/             @weihui1308
+.github/workflows/                 @weihui1308

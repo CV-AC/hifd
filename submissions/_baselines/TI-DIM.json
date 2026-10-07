@@ -1,0 +1,31 @@
+{
+  "method": "TI-DIM",
+  "paradigm": "adversarial",
+  "year": 2019,
+  "venue": "CVPR 2019",
+  "paper": "https://arxiv.org/abs/1904.02884",
+  "code": "https://github.com/dongyp13/Translation-Invariant-Attacks",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.4998,
+    "quality": 0.3417,
+    "age": 0.8802,
+    "gender": 0.8261,
+    "ethnicity": 0.6559,
+    "macro_exp": 0.7387,
+    "landmark": 0.6843,
+    "gaze": 0.9208,
+    "micro_exp": 0.7218,
+    "bvp": 0.4236,
+    "hr": 0.4248,
+    "U1": 0.757,
+    "U2": 0.8213,
+    "U3": 0.4242,
+    "HiFD_PrivacyFirst": 0.5055,
+    "HiFD_Balanced": 0.509,
+    "HiFD_Clinical": 0.4848
+  }
+}

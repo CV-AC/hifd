@@ -1,0 +1,31 @@
+{
+  "method": "MI-FGSM",
+  "paradigm": "adversarial",
+  "year": 2018,
+  "venue": "CVPR 2018",
+  "paper": "https://arxiv.org/abs/1710.06081",
+  "code": "https://github.com/dongyp13/Non-Targeted-Adversarial-Attacks",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.1342,
+    "quality": 0.3598,
+    "age": 0.9753,
+    "gender": 0.962,
+    "ethnicity": 0.9157,
+    "macro_exp": 0.9507,
+    "landmark": 0.834,
+    "gaze": 0.9361,
+    "micro_exp": 0.7994,
+    "bvp": 0.4709,
+    "hr": 0.4775,
+    "U1": 0.9276,
+    "U2": 0.8678,
+    "U3": 0.4742,
+    "HiFD_PrivacyFirst": 0.2167,
+    "HiFD_Balanced": 0.3432,
+    "HiFD_Clinical": 0.3687
+  }
+}

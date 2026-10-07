@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HiFDScore leaderboard submission",
+  "type": "object",
+  "required": [
+    "method", "paradigm", "year", "venue",
+    "paper", "code", "contact", "submitted_at",
+    "scores", "verified"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "method": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]{0,40}$"
+    },
+    "paradigm": {
+      "type": "string",
+      "enum": ["adversarial", "gan", "diffusion", "other"]
+    },
+    "year": { "type": "integer", "minimum": 2015, "maximum": 2100 },
+    "venue":   { "type": "string", "minLength": 1, "maxLength": 80 },
+    "paper":   { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "code":    { "type": "string", "format": "uri", "pattern": "^https?://" },
+    "contact": { "type": "string", "format": "email" },
+    "submitted_at": { "type": "string", "format": "date" },
+    "notes":  { "type": "string", "maxLength": 500 },
+    "verified": { "type": "boolean" },
+    "scores": {
+      "type": "object",
+      "required": [
+        "privacy", "quality",
+        "age", "gender", "ethnicity", "macro_exp", "landmark",
+        "gaze", "U1",
+        "U2",
+        "HiFD_PrivacyFirst", "HiFD_Balanced", "HiFD_Clinical"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "privacy":   { "type": "number", "minimum": 0, "maximum": 1 },
+        "quality":   { "type": "number", "minimum": 0, "maximum": 1 },
+        "age":       { "type": "number", "minimum": 0, "maximum": 1 },
+        "gender":    { "type": "number", "minimum": 0, "maximum": 1 },
+        "ethnicity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "macro_exp": { "type": "number", "minimum": 0, "maximum": 1 },
+        "landmark":  { "type": "number", "minimum": 0, "maximum": 1 },
+        "gaze":      { "type": "number", "minimum": 0, "maximum": 1 },
+        "micro_exp": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "bvp":       { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "hr":        { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "U1":        { "type": "number", "minimum": 0, "maximum": 1 },
+        "U2":        { "type": "number", "minimum": 0, "maximum": 1 },
+        "U3":        { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "HiFD_PrivacyFirst": { "type": "number", "minimum": 0, "maximum": 1 },
+        "HiFD_Balanced":     { "type": "number", "minimum": 0, "maximum": 1 },
+        "HiFD_Clinical":     { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

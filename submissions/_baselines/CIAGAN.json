@@ -1,0 +1,31 @@
+{
+  "method": "CIAGAN",
+  "paradigm": "gan",
+  "year": 2020,
+  "venue": "CVPR 2020",
+  "paper": "https://arxiv.org/abs/2005.09544",
+  "code": "https://github.com/dvl-tum/ciagan",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.45,
+    "quality": 0.2763,
+    "age": 0.8945,
+    "gender": 0.5493,
+    "ethnicity": 0.2908,
+    "macro_exp": 0.5285,
+    "landmark": 0.0752,
+    "gaze": 0.7478,
+    "micro_exp": 0.5721,
+    "bvp": 0.2248,
+    "hr": 0.2689,
+    "U1": 0.4677,
+    "U2": 0.66,
+    "U3": 0.2468,
+    "HiFD_PrivacyFirst": 0.3958,
+    "HiFD_Balanced": 0.3691,
+    "HiFD_Clinical": 0.3284
+  }
+}

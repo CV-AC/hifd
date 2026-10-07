@@ -1,0 +1,31 @@
+{
+  "method": "Chameleon",
+  "paradigm": "adversarial",
+  "year": 2024,
+  "venue": "ECCV 2024",
+  "paper": "https://arxiv.org/abs/2407.08877",
+  "code": "https://github.com/git-disl/Chameleon",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.2387,
+    "quality": 0.4742,
+    "age": 0.9151,
+    "gender": 0.8972,
+    "ethnicity": 0.7804,
+    "macro_exp": 0.8389,
+    "landmark": 0.8162,
+    "gaze": 0.961,
+    "micro_exp": 0.8163,
+    "bvp": 0.8214,
+    "hr": 0.7766,
+    "U1": 0.8496,
+    "U2": 0.8886,
+    "U3": 0.799,
+    "HiFD_PrivacyFirst": 0.3568,
+    "HiFD_Balanced": 0.5075,
+    "HiFD_Clinical": 0.5584
+  }
+}

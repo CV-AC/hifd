@@ -1,0 +1,31 @@
+{
+  "method": "AMT-GAN",
+  "paradigm": "gan",
+  "year": 2022,
+  "venue": "CVPR 2022",
+  "paper": "https://arxiv.org/abs/2203.03121",
+  "code": "https://github.com/CGCL-codes/AMT-GAN",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.1564,
+    "quality": 0.4807,
+    "age": 0.9663,
+    "gender": 0.9111,
+    "ethnicity": 0.737,
+    "macro_exp": 0.8682,
+    "landmark": 0.8207,
+    "gaze": 0.9381,
+    "micro_exp": 0.5526,
+    "bvp": 0.1316,
+    "hr": 0.164,
+    "U1": 0.8607,
+    "U2": 0.7453,
+    "U3": 0.1478,
+    "HiFD_PrivacyFirst": 0.2167,
+    "HiFD_Balanced": 0.2818,
+    "HiFD_Clinical": 0.2297
+  }
+}

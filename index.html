@@ -1,1 +1,204 @@
-xxx
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Private is Private? — HiFD & UtilFace</title>
+<meta name="description" content="Hierarchical, consistency-based metric and balanced benchmark for evaluating face de-identification, plus a community leaderboard.">
+<meta property="og:title" content="How Private is Private?">
+<meta property="og:description" content="HiFD: hierarchical metric for face de-identification. UtilFace: balanced 100K-image benchmark.">
+<meta property="og:image" content="./assets/img/teaser.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%235183f5'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="./assets/css/site.css">
+<!-- KaTeX for the harmonic-mean equation -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]})"></script>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <h1 class="hero__title">How Private is Private? A Comparative Study for Face De-Identification</h1>
+  <p class="hero__sub">A hierarchical, consistency-based metric HiFD and a demographically balanced benchmark UtilFace for face de-identification.</p>
+  <p class="hero__byline">
+    Hui Wei<sup>1,2</sup>
+    <span class="sep">·</span>
+    Hao Yu<sup>1,2</sup>
+    <span class="sep">·</span>
+    Hui Kuurila-Zhang<sup>2</sup>
+    <span class="sep">·</span>
+    Guoying Zhao<sup>1,2</sup>
+  </p>
+  <p class="hero__affil">
+    <sup>1</sup>ELLIS Institute Finland, Finland<span class="sep">·</span><sup>2</sup>Center for Machine Vision and Signal Analysis (CMVS), University of Oulu, Finland
+  </p>
+  <p><span class="hero__venue">NeurIPS 2026 · E&amp;D Track</span></p>
+  <!-- TODO: point the first three buttons at the camera-ready PDF / OpenReview page, the public code repository, and the UtilFace release page. -->
+  <div class="hero__buttons">
+    <a class="btn" href="https://neurips.cc/virtual/2026/loc/sydney/poster/139260" rel="noopener">Paper</a>
+    <a class="btn" href="https://neurips.cc/virtual/2026/loc/sydney/poster/139260" rel="noopener">arXiv</a>
+    <a class="btn" href="https://github.com/infraface/hifd" rel="noopener">Code &amp; Toolkit</a>
+    <a class="btn" href="#benchmark" rel="noopener">UtilFace Release</a>
+    <a class="btn" href="#leaderboard">Leaderboard</a>
+    <a class="btn" href="#cite">BibTeX</a>
+  </div>
+</header>
+
+<figure class="figure figure--hero">
+  <a href="./assets/img/teaser.png"><img src="./assets/img/teaser.png" alt="One face processed by six de-identification methods, with HiFD utility scores at three hierarchy levels and the composite score."></a>
+  <figcaption class="figure-caption">
+    <strong>Figure 1.</strong>
+    HiFD reveals what the eye cannot: PGD and Adv-Makeup look identical to the original yet score 0.32 and 0.06, Chameleon looks noisy yet keeps the pulse signal, and WeakenDiff passes the macro and micro levels while destroying the physiological one.
+  </figcaption>
+</figure>
+
+<section id="abstract">
+  <h2>Abstract</h2>
+  <p>Face de-identification (FDeID) has emerged as a critical privacy-preserving technology, yet its evaluation remains fundamentally fragmented. Existing protocols rely on inconsistent metrics, heterogeneous datasets, and partial annotation coverage, so methods targeting different utility dimensions are reported on different benchmarks under different metrics, rendering cross-method comparison infeasible.</p>
+  <p>We revisit FDeID evaluation from both the data and metric perspectives. We introduce <strong>UtilFace</strong>, a curated, demographically balanced benchmark with high identity diversity, and propose <strong>HiFD</strong>, a hierarchical face de-identification metric that unifies identity suppression, multi-level utility preservation, and image quality under a single consistency-based paradigm. Using this unified protocol, we conduct a comprehensive comparative study spanning adversarial, GAN-based, and diffusion-based methods, surfacing trade-offs and failure modes that remain invisible under existing protocols.</p>
+  <p class="callout">How private is private? Under HiFD, the best of twelve methods reaches just <strong>0.607</strong> (95% CI 0.593–0.618); nine of twelve score below <strong>0.30</strong> on identity suppression, and only <strong>three</strong> de-identify more than 85% of faces from a modern recognizer ensemble at a false-accept rate of 10<sup>−2</sup>.</p>
+</section>
+
+<section id="leaderboard">
+  <h2>Leaderboard</h2>
+  <p>Twelve baselines from the paper, ranked under the selected profile. Click any row to reveal the per-axis breakdown (axes defined below in <a href="#metric">HiFD Metric</a>). The <span class="verified">✓</span> badge marks entries reproduced by maintainers. </p>
+
+
+  <div class="lb-wrap">
+    <div class="lb-strip">
+      <span class="pip live">Live data</span>
+      <span class="pip"><span class="count" id="lb-count">—</span>&nbsp;entries</span>
+      <span class="pip">Indexed&nbsp;<span id="lb-updated">—</span></span>
+    </div>
+
+    <div class="lb-controls">
+      <fieldset>
+        <legend>Profile</legend>
+        <label><input type="radio" name="profile" value="Balanced" checked> Balanced</label>
+        <label><input type="radio" name="profile" value="PrivacyFirst"> Privacy-First</label>
+        <label><input type="radio" name="profile" value="Clinical"> Clinical</label>
+      </fieldset>
+      <fieldset>
+        <legend>Paradigm</legend>
+        <label><input type="checkbox" name="paradigm" value="adversarial" checked> Adv</label>
+        <label><input type="checkbox" name="paradigm" value="gan" checked> GAN</label>
+        <label><input type="checkbox" name="paradigm" value="diffusion" checked> Diff</label>
+        <label><input type="checkbox" name="paradigm" value="other" checked> Other</label>
+      </fieldset>
+      <fieldset>
+        <label><input type="checkbox" name="verified-only"> Verified only</label>
+      </fieldset>
+    </div>
+
+    <div class="lb-table-wrap">
+      <table class="lb" id="lb">
+        <thead>
+          <tr>
+            <th data-sort="rank">#</th>
+            <th data-sort="method">Method</th>
+            <th data-sort="paradigm">Paradigm</th>
+            <th data-sort="privacy">P̄</th>
+            <th data-sort="quality">Q</th>
+            <th data-sort="U1">U₁</th>
+            <th data-sort="U2">U₂</th>
+            <th data-sort="U3">U₃</th>
+            <th data-sort="HiFD" class="sorted">HiFD</th>
+            <th data-sort="verified">✓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="10" class="lb-status">Loading… or see the <a href="./leaderboard.html">static snapshot</a> if JS is disabled.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="submit-cta">
+    <button class="btn" id="submit-btn" type="button">Submit your method</button>
+  </div>
+
+  <dialog id="submit-dialog">
+    <form method="dialog">
+      <h3>Submit to the HiFD leaderboard</h3>
+      <p>Fork the repo, drop one JSON file under <code>docs/page/submissions/</code>, and open a PR. CI validates the schema and harmonic-mean self-consistency; a maintainer reviews and merges. The leaderboard rebuilds automatically.</p>
+      <pre id="template-json"></pre>
+      <p>Full instructions: <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+      <menu><button class="btn" value="close">Close</button></menu>
+    </form>
+  </dialog>
+</section>
+
+<section id="benchmark">
+  <h2>UtilFace Benchmark</h2>
+  <p>UtilFace is built from four large-scale face datasets through a four-stage curation pipeline: identity-aware cleaning, blind face restoration, NIQE-based perceptual filtering, and demographically stratified sampling at the identity level. The result is <strong>99,928 images across 2,069 identities</strong>, with near-uniform gender balance (51.5 / 48.5%) and an ethnicity distribution flattened from a 53× to a 2.3× largest-to-smallest ratio. Because HiFD is consistency-based, UtilFace itself requires no attribute annotations.</p>
+
+  <table class="pipeline">
+    <thead>
+      <tr>
+        <th>Stage</th>
+        <th>Operation</th>
+        <th class="num"># Images</th>
+        <th class="num"># Identities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="label">01 · Aggregation</td>            <td>Merge 4 source datasets</td>                       <td class="num">~69.55M</td><td class="num">~3.12M</td></tr>
+      <tr><td class="label">02 · Cleaning &amp; Enhance</td> <td>Identity-aware filtering; GFPGAN / CodeFormer</td> <td class="num">~20.58M</td><td class="num">~701,810</td></tr>
+      <tr><td class="label">03 · Quality filter</td>         <td>NIQE &lt; 5.0</td>                                   <td class="num">~8.69M</td> <td class="num">~640,035</td></tr>
+      <tr><td class="label">04 · Balanced sampling</td>      <td>Hierarchical stratified sampling</td>               <td class="num"><strong>99,928</strong></td><td class="num"><strong>2,069</strong></td></tr>
+    </tbody>
+  </table>
+
+
+<section id="metric">
+  <h2>HiFD Metric</h2>
+  <p>HiFD organizes facial signals into a three-level utility hierarchy, <strong>macro (L₁)</strong>, <strong>micro (L₂)</strong>, <strong>imperceptible (L₃)</strong>, and integrates them with identity suppression (P̄) and image quality (Q) via a weighted harmonic mean:</p>
+
+  <div class="equation">$$ \text{HiFD} \;=\; \Bigl( w_P + w_Q + \sum_{\ell=1}^{L} w_\ell \Bigr) \, \bigg/ \, \Bigl( \frac{w_P}{\bar{P} + \epsilon} + \frac{w_Q}{Q + \epsilon} + \sum_{\ell=1}^{L} \frac{w_\ell}{U_\ell + \epsilon} \Bigr) $$</div>
+
+  <p>Every component is a <em>consistency score</em>, the similarity between a pretrained estimator's outputs on the original face and its de-identified counterpart, so HiFD requires no per-image attribute annotations. The harmonic mean's <em>vetoing</em> property drives the score toward zero when any single dimension collapses, surfacing imbalanced methods that pass single-axis protocols.</p>
+
+</section>
+
+<section id="validation">
+  <h2>Is HiFD valid?</h2>
+  <p>A consistency-based metric stands or falls on whether estimator consistency tracks <em>true</em> utility. The following results answer it with dedicated experiments:</p>
+
+  <p>On the expression-labelled RAF-DB test split de-identified by all twelve methods, the per-image consistency score predicts whether the true label survives with AUC 0.98 over the 28,614 pairs whose original is classified correctly; across methods the consistency sub-score ranks methods as the labels do (Spearman 0.944). On MMPD, ranking by true heart-rate error from the contact sensor agrees with U₃ at Spearman 0.944.</p>
+
+
+  <figure class="figure">
+    <a href="./assets/img/validity.png"><img src="./assets/img/validity.png" alt="Grouped bars per method: expression consistency next to ground-truth accuracy retained, rPPG consistency next to contact-sensor heart-rate accuracy retained, and privacy score next to de-identification success at a fixed false-accept rate." loading="lazy"></a>
+    <figcaption class="figure-caption">
+      <strong>Figure 2.</strong>
+      HiFD consistency scores (solid) next to ground-truth scores (hatched) for every method, coloured by paradigm. (a) Expression consistency on the de-identified RAF-DB test split vs. the fraction of label accuracy retained: within 0.06 for every method. (b) U₃ on MMPD vs. the fraction of contact-sensor heart-rate accuracy retained: same three best and same three worst methods. (c) P̄ vs. de-identification success at FAR 10<sup>−3</sup>: only the three methods with P̄ ≥ 0.45 de-identify most faces.
+    </figcaption>
+  </figure>
+</section>
+
+<section id="cite">
+  <h2>Citation</h2>
+  <pre class="bibtex"><button class="copy-btn" type="button" data-target="bibtex">Copy</button><code id="bibtex">@inproceedings{wei2026hifd,
+  title={How Private is Private? A Comparative Study for Face De-Identification},
+  author={Wei, Hui and Yu, Hao and Kuurila-Zhang, Hui and Zhao, Guoying},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2026}
+}</code></pre>
+</section>
+
+<footer>
+  <div>
+    <span class="meta">© 2026 · UtilFace and HiFD are released for research use · leaderboard rebuilt from <code>submissions/</code> on every merge</span>
+    <span><a href="mailto:hui.wei@oulu.fi">hui.wei@oulu.fi</a></span>
+  </div>
+</footer>
+
+<script src="./assets/js/leaderboard.js" defer></script>
+</body>
+</html>

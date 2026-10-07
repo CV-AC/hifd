@@ -1,0 +1,31 @@
+{
+  "method": "DiffAM",
+  "paradigm": "diffusion",
+  "year": 2024,
+  "venue": "CVPR 2024",
+  "paper": "https://arxiv.org/abs/2405.09882",
+  "code": "https://github.com/HansSunY/DiffAM",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.1591,
+    "quality": 0.4714,
+    "age": 0.9585,
+    "gender": 0.9226,
+    "ethnicity": 0.6984,
+    "macro_exp": 0.8021,
+    "landmark": 0.5829,
+    "gaze": 0.9078,
+    "micro_exp": 0.7148,
+    "bvp": 0.5383,
+    "hr": 0.5753,
+    "U1": 0.7929,
+    "U2": 0.8113,
+    "U3": 0.5568,
+    "HiFD_PrivacyFirst": 0.2535,
+    "HiFD_Balanced": 0.3938,
+    "HiFD_Clinical": 0.4249
+  }
+}

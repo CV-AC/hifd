@@ -1,0 +1,31 @@
+{
+  "method": "WeakenDiff",
+  "paradigm": "diffusion",
+  "year": 2025,
+  "venue": "CVPR 2025",
+  "paper": "https://arxiv.org/abs/2503.10350",
+  "code": "https://github.com/parham1998/Facial-Privacy-Protection",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.222,
+    "quality": 0.3706,
+    "age": 0.9514,
+    "gender": 0.9217,
+    "ethnicity": 0.6795,
+    "macro_exp": 0.8653,
+    "landmark": 0.7541,
+    "gaze": 0.9244,
+    "micro_exp": 0.6587,
+    "bvp": 0.1687,
+    "hr": 0.2008,
+    "U1": 0.8344,
+    "U2": 0.7915,
+    "U3": 0.1848,
+    "HiFD_PrivacyFirst": 0.2798,
+    "HiFD_Balanced": 0.3316,
+    "HiFD_Clinical": 0.2767
+  }
+}

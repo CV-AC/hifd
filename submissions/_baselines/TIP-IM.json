@@ -1,0 +1,31 @@
+{
+  "method": "TIP-IM",
+  "paradigm": "adversarial",
+  "year": 2021,
+  "venue": "ICCV 2021",
+  "paper": "https://arxiv.org/abs/2108.04023",
+  "code": "https://github.com/ShawnXYang/TIP-IM",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.4962,
+    "quality": 0.4457,
+    "age": 0.9268,
+    "gender": 0.8817,
+    "ethnicity": 0.7014,
+    "macro_exp": 0.7939,
+    "landmark": 0.7285,
+    "gaze": 0.9437,
+    "micro_exp": 0.8121,
+    "bvp": 0.6425,
+    "hr": 0.605,
+    "U1": 0.8065,
+    "U2": 0.8779,
+    "U3": 0.6237,
+    "HiFD_PrivacyFirst": 0.5599,
+    "HiFD_Balanced": 0.6067,
+    "HiFD_Clinical": 0.6109
+  }
+}

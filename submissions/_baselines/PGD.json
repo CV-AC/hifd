@@ -1,0 +1,31 @@
+{
+  "method": "PGD",
+  "paradigm": "adversarial",
+  "year": 2018,
+  "venue": "ICLR 2018",
+  "paper": "https://arxiv.org/abs/1706.06083",
+  "code": "https://github.com/MadryLab/cifar10_challenge",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.1133,
+    "quality": 0.3625,
+    "age": 0.9781,
+    "gender": 0.9678,
+    "ethnicity": 0.9354,
+    "macro_exp": 0.9642,
+    "landmark": 0.8429,
+    "gaze": 0.9402,
+    "micro_exp": 0.8168,
+    "bvp": 0.5773,
+    "hr": 0.5552,
+    "U1": 0.9377,
+    "U2": 0.8785,
+    "U3": 0.5663,
+    "HiFD_PrivacyFirst": 0.1903,
+    "HiFD_Balanced": 0.3215,
+    "HiFD_Clinical": 0.3604
+  }
+}

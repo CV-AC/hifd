@@ -1,0 +1,31 @@
+{
+  "method": "G2Face",
+  "paradigm": "gan",
+  "year": 2024,
+  "venue": "TIFS 2024",
+  "paper": "https://arxiv.org/abs/2408.09458",
+  "code": "https://github.com/Harxis/G2Face",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.2098,
+    "quality": 0.4426,
+    "age": 0.953,
+    "gender": 0.898,
+    "ethnicity": 0.7124,
+    "macro_exp": 0.8173,
+    "landmark": 0.6652,
+    "gaze": 0.9029,
+    "micro_exp": 0.7931,
+    "bvp": 0.3236,
+    "hr": 0.3279,
+    "U1": 0.8092,
+    "U2": 0.848,
+    "U3": 0.3257,
+    "HiFD_PrivacyFirst": 0.2984,
+    "HiFD_Balanced": 0.3997,
+    "HiFD_Clinical": 0.3782
+  }
+}

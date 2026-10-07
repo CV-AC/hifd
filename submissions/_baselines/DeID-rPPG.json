@@ -1,0 +1,31 @@
+{
+  "method": "DeID-rPPG",
+  "paradigm": "gan",
+  "year": 2023,
+  "venue": "BMVC 2023",
+  "paper": "https://arxiv.org/abs/2305.13593",
+  "code": "https://github.com/CV-AC/De-id_rPPG",
+  "contact": "hui.wei@oulu.fi",
+  "submitted_at": "2026-09-30",
+  "notes": "Baseline from the paper (camera-ready scores); computed on UtilFace + DFME + PURE.",
+  "verified": true,
+  "scores": {
+    "privacy": 0.0131,
+    "quality": 0.4069,
+    "age": 0.9796,
+    "gender": 0.9709,
+    "ethnicity": 0.8904,
+    "macro_exp": 0.9631,
+    "landmark": 0.8539,
+    "gaze": 0.9402,
+    "micro_exp": 0.8377,
+    "bvp": 0.94,
+    "hr": 0.8748,
+    "U1": 0.9316,
+    "U2": 0.889,
+    "U3": 0.9074,
+    "HiFD_PrivacyFirst": 0.0257,
+    "HiFD_Balanced": 0.0609,
+    "HiFD_Clinical": 0.0794
+  }
+}
