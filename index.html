@@ -136,7 +136,7 @@
 
 <section id="benchmark">
   <h2>UtilFace Benchmark</h2>
-  <p>UtilFace is built from four large-scale face datasets through a four-stage curation pipeline: identity-aware cleaning, blind face restoration, NIQE-based perceptual filtering, and demographically stratified sampling at the identity level. The result is <strong>99,928 images across 2,069 identities</strong>, with near-uniform gender balance (51.5 / 48.5%) and an ethnicity distribution flattened from a 53× to a 2.3× largest-to-smallest ratio. Because HiFD is consistency-based, UtilFace itself requires no attribute annotations.</p>
+  <p>UtilFace is a curated, demographically balanced benchmark for evaluating face de-identification. We collected four large-scale face image datasets (WebFace42M, Glint360K, MS1MV2, MegaFace). The curation pipeline (cleaning, blind face restoration, NIQE-based perceptual filtering, and demographically stratified sampling at the identity level) yields <strong>99,928 images across 2,069 identities</strong>, with near-uniform gender balance (51.5 / 48.5%) and an ethnicity distribution flattened from a 53× to a 2.3× largest-to-smallest ratio. Because HiFD is consistency-based, UtilFace itself requires no attribute annotations.</p>
 
   <table class="pipeline">
     <thead>
@@ -155,6 +155,17 @@
     </tbody>
   </table>
 
+  <h3>Data release</h3>
+  <p>UtilFace is distributed through a gated, research-only <a href="https://huggingface.co/datasets/huiwei25/UtilFace" rel="noopener">Hugging Face dataset</a> under CC BY-NC 4.0. <strong>The release contains no images, face embeddings, or per-image attributes.</strong> It provides:</p>
+  <ul>
+    <li><code>data/images.csv</code>: the 99,928 WebFace42M file paths that define UtilFace, with flags for scored and mini-UtilFace images;</li>
+    <li><code>data/identities.csv</code>: the 2,069 identities with image counts and gender × ethnicity sampling strata;</li>
+    <li><code>scores/hifd_scores.csv</code>: HiFD components and composites of the twelve baselines;</li>
+    <li><code>mini_utilface/</code>: a 2,000-image validation bundle of per-image sub-scores with a <code>verify.py</code> script that reproduces the published ranking without any face data;</li>
+    <li><code>croissant.json</code>: Croissant 1.1 metadata with Responsible-AI and provenance fields.</li>
+  </ul>
+  <p>To rebuild the images, obtain WebFace42M from its <a href="https://www.face-benchmark.org" rel="noopener">official providers</a>, select the files listed in <code>data/images.csv</code>. Access requires agreeing to use UtilFace for non-commercial research on face de-identification only. It must not be used to train face recognition or to re-identify individuals. Identity removal requests are honoured in later versions.</p>
+  
 
 <section id="metric">
   <h2>HiFD Metric</h2>
